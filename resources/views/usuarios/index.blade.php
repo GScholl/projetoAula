@@ -15,6 +15,10 @@
                         {{ session('erro') }}
                     </div>
                 @endif
+
+                <a role="button" href="{{route('usuarios.cadastro')}}" class="btn btn-success">
+                    Adicionar novo Usuario
+                </a>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>

@@ -16,8 +16,6 @@ class UsuarioController extends Controller
 
     public function cadastro()
     {
-
-
         return view("usuarios.cadastro");
     }
     public function login()
@@ -58,14 +56,15 @@ class UsuarioController extends Controller
         $usuario->save();
         return redirect()->route('usuarios.index')->with('sucesso', 'Usuário editado com sucesso!');
     }
-    public function excluir($id){
+    public function excluir($id)
+    {
         $usuario = Usuario::find($id);
-        if($usuario->delete()){
+        if ($usuario->delete()) {
 
-            return redirect()->route('usuarios.index')->with("sucesso","Usuário Excluido com sucesso");
+            return redirect()->route('usuarios.index')->with("sucesso", "Usuário Excluido com sucesso");
         }
 
-        return redirect()->route('usuarios.index')->with("erro","Usuário Excluido com sucesso");
+        return redirect()->route('usuarios.index')->with("erro", "Usuário Excluido com sucesso");
     }
     public function novo(Request $request)
     {
@@ -80,6 +79,5 @@ class UsuarioController extends Controller
             $mensagem = "Não foi possivel Inserir";
         }
         return view("usuarios.resultado", compact("mensagem"));
-
     }
 }
