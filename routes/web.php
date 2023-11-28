@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\ProdutoController;
 
 // Login Routes
 Route::get('/login', [UsuarioController::class, 'login'])->name('usuarios.login');
@@ -34,9 +34,9 @@ Route::get('usuario/excluir/{id}', [UsuarioController::class, 'excluir'])->name(
 
 
 //Produtos Routes
-Route::get('produto/editar/{id}', [ProdutosController::class, 'editar'])->name('produtos.editar')->where('id', '[0-9]+');
-Route::post('produto/edita', [ProdutosController::class, 'edita'])->name('produtos.edita');
-Route::get('produto/excluir/{id}', [ProdutosController::class, 'excluir'])->name('produtos.excluir')->where('id', '[0-9]+');
-Route::post('/produto/novo', [ProdutosController::class, 'novo'])->name('produtos.novo');
-Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos.index');
-Route::get('/produtos/cadastro', [ProdutosController::class, 'cadastro'])->name('produtos.cadastro');
+Route::get('produto/editar/{id}', [ProdutoController::class, 'editar'])->name('produtos.editar')->where('id', '[0-9]+');
+Route::post('produto/edita', [ProdutoController::class, 'edita'])->name('produtos.edita');
+Route::get('produto/excluir/{id}', [ProdutoController::class, 'excluir'])->name('produtos.excluir')->where('id', '[0-9]+');
+Route::post('/produto/novo', [ProdutoController::class, 'novo'])->name('produtos.novo');
+Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
+Route::get('/produtos/cadastro', [ProdutoController::class, 'cadastro'])->name('produtos.cadastro');

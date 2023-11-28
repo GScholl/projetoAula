@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Produtos;
+use App\Models\Produto;
 
-class ProdutosController extends Controller
+class ProdutoController extends Controller
 {
 
     public function cadastro()
@@ -15,21 +15,21 @@ class ProdutosController extends Controller
 
     public function index()
     {
-        $produtos = Produtos::all();
+        $produtos = Produto::all();
         return view("produtos.index", compact("produtos"));
     }
 
     public function editar($id)
     {
 
-        $produto =  Produtos::where('id', '=', $id)->first();
+        $produto =  Produto::where('id', '=', $id)->first();
         return view("produtos.alteracao", compact('produto'));
     }
 
     public function edita(Request $request)
     {
 
-        $produto = Produtos::find($request->id);
+        $produto = Produto::find($request->id);
 
 
         $produto->id = $request->id;
@@ -44,7 +44,7 @@ class ProdutosController extends Controller
     }
     public function excluir($id)
     {
-        $produto = Produtos::find($id);
+        $produto = Produto::find($id);
         if ($produto->delete()) {
 
             return redirect()->route('produtos.index')->with("sucesso", "Produto Excluido com sucesso");
@@ -55,7 +55,7 @@ class ProdutosController extends Controller
     public function novo(Request $request)
     {
 
-        $produto = new Produtos();
+        $produto = new Produto();
         $produto->id = $request->id;
         $produto->nome = $request->nome;
         $produto->descricao = $request->descricao;
