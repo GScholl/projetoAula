@@ -1,0 +1,31 @@
+.card-menu {}
+
+.menu {
+
+    min-height: 100vh;
+}
+
+.link-menu {
+    text-decoration: none !important;
+}
+
+.cor-do-laravel {
+    color: #EB4432;
+
+}
+
+.card-menu {
+    border-radius: 10px;
+    height: 20vh;
+    box-shadow: 0px 0px 5px 0px rgba(235, 68, 50, 0.7);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(235, 68, 50, 0.7);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(235, 68, 50, 0.7);
+    transition: all .5s;
+}
+
+.card-menu:hover {
+
+    box-shadow: 0px 0px 16px 0px rgba(235, 68, 50, 0.7);
+    -webkit-box-shadow: 0px 0px 16px 0px rgba(235, 68, 50, 0.7);
+    -moz-box-shadow: 0px 0px 16px 0px rgba(235, 68, 50, 0.7);
+}
