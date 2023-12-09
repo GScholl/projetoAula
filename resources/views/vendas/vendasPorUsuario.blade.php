@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('conteudo')
+@section('vendas.conteudo')
 
     <div class="container mt-3">
-        <h2 class="text-center">Lista de Usuários</h2>
+        <h2 class="text-center">Lista de Vendas do Usuário {{$usuario->nome}}</h2>
         <div class="row">
             <div class="col-12">
                 @if (session()->has('sucesso'))
@@ -16,33 +16,29 @@
                     </div>
                 @endif
 
-                <a role="button" href="{{ route('usuarios.cadastro') }}" class="btn btn-success">
-                    Adicionar novo Usuario
-                </a>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nome</th>
-                                <th>Login</th>
-                                <th>Senha</th>
-                                <th colspan="3" class="text-center">Opções</th>
+                                <th>Nome do cliente</th>
+                                <th>Valor</th>
+
+                                <th>Opções</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($usuarios as $usuario)
+                            @foreach ($usuario->vendas as $venda)
                                 <tr>
-                                    <td>{{ $usuario->id }}</td>
+                                    <td>{{ $venda->id }}</td>
                                     <td>{{ $usuario->nome }}</td>
-                                    <td>{{ $usuario->login }}</td>
-                                    <td>{{ $usuario->senha }}</td>
-                                    <td><a href="{{ route('usuarios.editar', ['id' => $usuario->id]) }}"
+                                    <td>{{ $venda->valor }}</td>
+
+
+                                    <td><a href="{{ route('vendas.editar', ['id' => $venda->id]) }}"
                                             role="button"class="btn btn-success">Editar</a></td>
-                                    <td><a href="{{ route('vendas.usuario', ['id' => $usuario->id]) }}"
-                                            role="button"class="btn btn-primary">Vendas</a></td>
-                                    <td><a href="{{ route('usuarios.excluir', ['id' => $usuario->id]) }}"
+                                    <td><a href="{{ route('vendas.excluir', ['id' => $venda->id]) }}"
                                             role="button"class="btn btn-danger">Excluir</a></td>
                                 </tr>
                             @endforeach

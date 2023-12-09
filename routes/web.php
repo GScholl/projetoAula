@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\VendaController;
 
 // Login Routes
 Route::get('/login', [UsuarioController::class, 'login'])->name('usuarios.login');
@@ -40,3 +41,14 @@ Route::get('produto/excluir/{id}', [ProdutoController::class, 'excluir'])->name(
 Route::post('/produto/novo', [ProdutoController::class, 'novo'])->name('produtos.novo');
 Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
 Route::get('/produtos/cadastro', [ProdutoController::class, 'cadastro'])->name('produtos.cadastro');
+
+
+// Vendas Routes
+Route::get('vendas', [VendaController::class, 'index'])->name('vendas.index');
+Route::get('vendas/usuario/{id}', [VendaController::class, 'vendaPorUsuario'])->name('vendas.usuario');
+Route::get('vendas/cadastro', [VendaController::class, 'telaCadastro'])->name('vendas.cadastro');
+Route::post('vendas/novo', [VendaController::class, 'novo'])->name('vendas.novo');
+
+Route::get('vendas/excluir/{id}', [VendaController::class, 'excluir'])->name('vendas.excluir')->where('id', '[0-9]+');
+Route::get('vendas/editar/{id}', [VendaController::class, 'editar'])->name('vendas.editar')->where('id', '[0-9]+');
+Route::post('vendas/edita', [VendaController::class, 'edita'])->name('vendas.edita');

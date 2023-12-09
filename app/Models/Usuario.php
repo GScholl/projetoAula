@@ -11,4 +11,13 @@ class Usuario extends Model
     use HasFactory;
     protected $table = 'usuarios';
     protected $primaryKey = 'id';
+
+
+
+
+    public function vendas(){
+
+
+        return $this->hasMany('App\Models\Venda','id_usuario','id');
+    }
 }

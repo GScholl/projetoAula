@@ -25,6 +25,7 @@
     @yield('produtos.cadastro')
     @yield('produtos.alteracao')
     @yield('produtos.conteudo')
+    @yield('vendas.cadastro')
     @yield('menu')
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

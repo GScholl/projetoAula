@@ -64,7 +64,7 @@ class UsuarioController extends Controller
             return redirect()->route('usuarios.index')->with("sucesso", "Usuário Excluido com sucesso");
         }
 
-        return redirect()->route('usuarios.index')->with("erro", "Usuário Excluido com sucesso");
+        return redirect()->route('usuarios.index')->with("erro", "Usuário não foi Excluido ");
     }
     public function novo(Request $request)
     {
